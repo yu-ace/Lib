@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bookList</title>
+</head>
+
+<div id="header" style="background-color:#33CCCC;">
+  <h1 style="margin-bottom:0;text-align:center">欢迎来到图书借阅系统</h1></div>
+<body>
+<div th:insert="commons::fragment-name1"></div>
+
+<div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
+  <h1>图书列表</h1>
+  <p th:text="${tip}"></p>
+  <form action="/bookListByAnther" method="post">
+    <div>
+      <label>
+        请输入作者
+        <input type="text" name="anther">
+      </label>
+    </div>
+    <div>
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </div>
+  </form>
+
+  <form action="/bookListByCategory" method="post">
+    <div>
+      <label>
+        请输入分类
+        <input type="text" name="category">
+      </label>
+    </div>
+    <div>
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </div>
+  </form>
+
+
+  <table border="1">
+    <tr>
+      <th>id</th>
+      <th>书名</th>
+      <th>价格</th>
+      <th>数量</th>
+      <th>作者</th>
+      <th>分类</th>
+    </tr>
+    <tr th:each="m:${bookList}">
+      <td th:text="${m.id}"></td>
+      <td th:text="${m.name}"></td>
+      <td th:text="${m.price}"></td>
+      <td th:text="${m.count}"></td>
+      <td th:text="${m.anther}"></td>
+      <td th:text="${m.category}"></td>
+    </tr>
+  </table>
+
+  <form action="/bookListPage" method="post">
+    <div>
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </div>
+
+  </form>
+</div>
+</body>
+</html>

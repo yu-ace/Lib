@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>register</title>
+</head>
+
+<div id="container" style="width:1800px">
+
+  <div id="header" style="background-color:#33CCCC;">
+    <h1 style="margin-bottom:0;text-align:center">欢迎使用图书系统</h1></div>
+
+  <div id="content" style="background-color:#F0F0F0;height:1000px;width:1800px;float:left;">
+    <h2>注  册</h2>
+    <p th:text="${error}"></p>
+    <form action="/register"  method="post">
+      <div>
+        <label>
+          用户名<input type="text" name="name">
+        </label>
+      </div>
+      <div>
+        <label>
+          密 码<input type="text" name="password">
+        </label>
+      </div>
+      <div>
+        <input type="submit" value="提交">
+      </div>
+    </form>
+    <a href="/login">返回</a>
+  </div>
+
+
+  <div id="footer" style="background-color:#CCFFCC;clear:both;text-align:center;">
+    版权 你不可以动哦</div>
+</div>
+</html>
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>history</title>
+</head>
+
+<div id="header" style="background-color:#33CCCC;">
+  <h1 style="margin-bottom:0;text-align:center">欢迎来到图书管理系统</h1></div>
+<body>
+<div th:insert="commons::fragment-name"></div>
+
+<div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
+    <h1>历史记录</h1>
+<form action="/historyByBookId" method="post">
+  <div>
+    <label>
+      请输入书本id
+      <input type="number" name="id">
+    </label>
+  </div>
+  <div>
+  <label>
+    请选择页数<select name="number">
+    <option value="0">1</option>
+    <option value="1">2</option>
+  </select>
+  </label>
+  <input type="submit" value="确定">
+</div>
+</form>
+
+  <form action="/historyByUserId" method="post">
+    <div>
+      <label>
+        请输入用户id
+        <input type="number" name="userId">
+      </label>
+    </div>
+    <div>
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </div>
+  </form>
+
+  <form action="/historyByType" method="post">
+    <div>
+      <label>
+        请输入操作类型
+        <input type="number" name="type">
+      </label>
+    </div>
+    <div>
+      <label>
+        请选择页数<select name="number">
+        <option value="0">1</option>
+        <option value="1">2</option>
+      </select>
+      </label>
+      <input type="submit" value="确定">
+    </div>
+  </form>
+
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>书本id</th>
+        <th>用户id</th>
+        <th>类型(0上架 1借取 2归还)</th>
+        <th>数量</th>
+        <th>时间</th>
+      </tr>
+      <tr th:each="m:${history}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.bookId}"></td>
+        <td th:text="${m.userId}"></td>
+        <td th:text="${m.type}"></td>
+        <td th:text="${m.count}"></td>
+        <td th:text="${m.time}"></td>
+      </tr>
+    </table>
+
+    <form action="/historyPage" method="post">
+      <div>
+        <label>
+          请选择页数<select name="number">
+          <option value="0">1</option>
+          <option value="1">2</option>
+        </select>
+        </label>
+        <input type="submit" value="确定">
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>borrow</title>
+</head>
+
+<div id="header" style="background-color:#33CCCC;">
+  <h1 style="margin-bottom:0;text-align:center">欢迎来到图书借阅系统</h1></div>
+<body>
+<div th:insert="commons::fragment-name1"></div>
+
+<div id="content" style="background-color:#E0FFFF;height:1000px;width:1600px;float:left;">
+  <h1>归还图书</h1>
+  <p th:text="${tip}"></p>
+
+  <form action="/returnBook" method="post">
+    <div>
+      <label>
+        请输入书本id
+        <input type="text" name="id">
+      </label>
+    </div>
+    <div>
+      <input type="submit" value="确定">
+    </div>
+  </form>
+
+</div>
+</body>
+</html>
